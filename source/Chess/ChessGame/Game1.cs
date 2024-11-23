@@ -54,19 +54,19 @@ public class Game1 : Game
 
     protected override void LoadContent()
     {
-        _kingWhiteTexture = Content.Load<Texture2D>("kingWhite2d");
-        _queenWhiteTexture = Content.Load<Texture2D>("queenWhite2d");
-        _bishopWhiteTexture = Content.Load<Texture2D>("bishopWhite2d");
-        _knightWhiteTexture = Content.Load<Texture2D>("knightWhite2d");
-        _rookWhiteTexture = Content.Load<Texture2D>("rookWhite2d");
-        _pawnWhiteTexture = Content.Load<Texture2D>("pawnWhite2d");
+        _kingWhiteTexture = Content.Load<Texture2D>("kingWhite");
+        _queenWhiteTexture = Content.Load<Texture2D>("queenWhite");
+        _bishopWhiteTexture = Content.Load<Texture2D>("bishopWhite");
+        _knightWhiteTexture = Content.Load<Texture2D>("knightWhite");
+        _rookWhiteTexture = Content.Load<Texture2D>("rookWhite");
+        _pawnWhiteTexture = Content.Load<Texture2D>("pawnWhite");
         
-        _kingBlackTexture = Content.Load<Texture2D>("kingBlack2d");
-        _queenBlackTexture = Content.Load<Texture2D>("queenBlack2d");
-        _bishopBlackTexture = Content.Load<Texture2D>("bishopBlack2d");
-        _knightBlackTexture = Content.Load<Texture2D>("knightBlack2d");
-        _rookBlackTexture = Content.Load<Texture2D>("rookBlack2d");
-        _pawnBlackTexture = Content.Load<Texture2D>("pawnBlack2d");
+        _kingBlackTexture = Content.Load<Texture2D>("kingBlack");
+        _queenBlackTexture = Content.Load<Texture2D>("queenBlack");
+        _bishopBlackTexture = Content.Load<Texture2D>("bishopBlack");
+        _knightBlackTexture = Content.Load<Texture2D>("knightBlack");
+        _rookBlackTexture = Content.Load<Texture2D>("rookBlack");
+        _pawnBlackTexture = Content.Load<Texture2D>("pawnBlack");
 
         _emptyTexture = new Texture2D(GraphicsDevice, 1, 1);
         
