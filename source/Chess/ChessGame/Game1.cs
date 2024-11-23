@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -12,17 +13,17 @@ public class Game1 : Game
 
     private int _playerTurn;
     
-    // chessboard = 8x8
+    // Chessboard 8x8
     private Piece[,] ChessBoard = {
-        {new Piece("Tower"), new Piece("Knight"), new Piece("Bishop"), new Piece("Queen"), new Piece("King"), new Piece("Bishop"), new Piece("Knight"), new Piece("Tower")}, 
-        {new Piece("Pawn"), new Piece("Pawn") ,new Piece("Pawn") ,new Piece("Pawn") ,new Piece("Pawn") ,new Piece("Pawn") ,new Piece("Pawn") ,new Piece("Pawn")}, 
-        {}, 
-        {}, 
-        {}, 
-        {}, 
-        {new Piece("Pawn"), new Piece("Pawn") ,new Piece("Pawn") ,new Piece("Pawn") ,new Piece("Pawn") ,new Piece("Pawn") ,new Piece("Pawn") ,new Piece("Pawn")},
-        {new Piece("Tower"), new Piece("Knight"), new Piece("Bishop"), new Piece("King"), new Piece("Queen"), new Piece("Bishop"), new Piece("Knight"), new Piece("Tower")}
-    } ;
+        {new Piece("Rook", 1), new Piece("Knight", 1), new Piece("Bishop", 1), new Piece("King", 1), new Piece("Queen", 1), new Piece("Bishop", 1), new Piece("Knight", 1), new Piece("Rook", 1)}, 
+        {new Piece("Pawn", 1), new Piece("Pawn", 1), new Piece("Pawn", 1), new Piece("Pawn", 1), new Piece("Pawn", 1), new Piece("Pawn", 1), new Piece("Pawn", 1), new Piece("Pawn", 1)}, 
+        {new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2)}, 
+        {new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2)}, 
+        {new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2)},
+        {new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2), new Piece("", 2)}, 
+        {new Piece("Pawn", 0), new Piece("Pawn", 0), new Piece("Pawn", 0), new Piece("Pawn", 0), new Piece("Pawn", 0), new Piece("Pawn", 0), new Piece("Pawn", 0), new Piece("Pawn", 0)},
+        {new Piece("Rook", 0), new Piece("Knight", 0), new Piece("Bishop", 0), new Piece("King", 0), new Piece("Queen", 0), new Piece("Bishop", 0), new Piece("Knight", 0), new Piece("Rook", 0)}
+    };
     
     private KeyboardState _currentKeyboard;
     
