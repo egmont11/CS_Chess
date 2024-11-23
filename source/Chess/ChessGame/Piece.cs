@@ -15,4 +15,10 @@ public class Piece
     {
         
     }
+
+    public bool IsEmpty()
+    {
+        if (_team == 2){ return false; }
+        else return true;
+    }
 }
