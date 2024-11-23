@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -30,6 +28,11 @@ public class Game1 : Game
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
+        
+        _graphics.PreferredBackBufferWidth = 800;
+        _graphics.PreferredBackBufferHeight = 800;
+        _graphics.ApplyChanges();
+        
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
     }
