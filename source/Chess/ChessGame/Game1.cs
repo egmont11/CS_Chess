@@ -54,25 +54,25 @@ public class Game1 : Game
 
     protected override void LoadContent()
     {
-        _kingWhiteTexture = Content.Load<Texture2D>("kingWhite");
-        _queenWhiteTexture = Content.Load<Texture2D>("queenWhite");
-        _bishopWhiteTexture = Content.Load<Texture2D>("bishopWhite");
-        _knightWhiteTexture = Content.Load<Texture2D>("knightWhite");
-        _rookWhiteTexture = Content.Load<Texture2D>("rookWhite");
-        _pawnWhiteTexture = Content.Load<Texture2D>("pawnWhite");
+        _kingWhiteTexture = Content.Load<Texture2D>("KingWhite");
+        _queenWhiteTexture = Content.Load<Texture2D>("QueenWhite");
+        _bishopWhiteTexture = Content.Load<Texture2D>("BishopWhite");
+        _knightWhiteTexture = Content.Load<Texture2D>("KnightWhite");
+        _rookWhiteTexture = Content.Load<Texture2D>("CastleWhite");
+        _pawnWhiteTexture = Content.Load<Texture2D>("PawnWhite");
         
-        _kingBlackTexture = Content.Load<Texture2D>("kingBlack");
-        _queenBlackTexture = Content.Load<Texture2D>("queenBlack");
-        _bishopBlackTexture = Content.Load<Texture2D>("bishopBlack");
-        _knightBlackTexture = Content.Load<Texture2D>("knightBlack");
-        _rookBlackTexture = Content.Load<Texture2D>("rookBlack");
-        _pawnBlackTexture = Content.Load<Texture2D>("pawnBlack");
+        _kingBlackTexture = Content.Load<Texture2D>("KingBlack");
+        _queenBlackTexture = Content.Load<Texture2D>("QueenBlack");
+        _bishopBlackTexture = Content.Load<Texture2D>("BishopBlack");
+        _knightBlackTexture = Content.Load<Texture2D>("KnightBlack");
+        _rookBlackTexture = Content.Load<Texture2D>("CastleBlack");
+        _pawnBlackTexture = Content.Load<Texture2D>("PawnBlack");
 
         _emptyTexture = new Texture2D(GraphicsDevice, 1, 1);
         
         ChessBoard = new Piece[,] {
             {
-                new Piece("Rook", 1, new Vector2(50, 50), _pawnBlackTexture), 
+                new Piece("Rook", 1, new Vector2(50, 50), _rookBlackTexture), 
                 new Piece("Knight", 1, new Vector2(150, 50), _knightBlackTexture), 
                 new Piece("Bishop", 1, new Vector2(250, 50), _bishopBlackTexture), 
                 new Piece("King", 1, new Vector2(350, 50), _kingBlackTexture), 

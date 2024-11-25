@@ -11,17 +11,21 @@ public class Piece
     private Texture2D _texture;
     private Vector2 _vector2;
     
+    private Vector2 _vector2Offset;
+    
     public Piece(string type, int team, Vector2 vector2, Texture2D texture)
     {
         _type = type;
         _team = team;
         _vector2 = vector2;
         _texture = texture;
+        
+        _vector2Offset = _vector2 - new Vector2(_texture.Width / 2, _texture.Height / 2); ;
     }
     
     public void DrawSelf(SpriteBatch spriteBatch)
     {
-        spriteBatch.Draw(_texture, _vector2, Color.White);
+        spriteBatch.Draw(_texture, _vector2Offset, Color.White);
     }
 
     public bool IsEmpty()
