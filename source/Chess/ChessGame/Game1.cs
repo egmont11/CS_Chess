@@ -47,13 +47,15 @@ public class Game1 : Game
     protected override void Initialize()
     {
         // TODO: Add your initialization logic here
-        _playerTurn = 0;    // 0 = white, 1 = black
+        
         
         base.Initialize();
     }
 
     protected override void LoadContent()
     {
+        _playerTurn = 0;    // 0 = white, 1 = black
+        
         _kingWhiteTexture = Content.Load<Texture2D>("KingWhite");
         _queenWhiteTexture = Content.Load<Texture2D>("QueenWhite");
         _bishopWhiteTexture = Content.Load<Texture2D>("BishopWhite");
