@@ -12,6 +12,8 @@ public class Piece
     private Vector2 _vector2;
     
     private Vector2 _vector2Offset;
+
+    private Rectangle _pieceRectangle;
     
     public Piece(string type, int team, Vector2 vector2, Texture2D texture)
     {
@@ -20,7 +22,9 @@ public class Piece
         _vector2 = vector2;
         _texture = texture;
         
-        _vector2Offset = _vector2 - new Vector2(_texture.Width / 2, _texture.Height / 2); ;
+        _vector2Offset = _vector2 - new Vector2(_texture.Width / 2, _texture.Height / 2);
+        
+        _pieceRectangle = new Rectangle((int)_vector2Offset.X, (int)_vector2Offset.Y, _texture.Width, _texture.Height);
     }
     
     public void DrawSelf(SpriteBatch spriteBatch)
@@ -37,10 +41,26 @@ public class Piece
     public void replacePiece(Piece toReplacePiece)
     {
         _vector2 = toReplacePiece.getVector2();
+        
+        _vector2Offset = _vector2 - new Vector2(_texture.Width / 2, _texture.Height / 2);
+        _pieceRectangle = new Rectangle((int)_vector2Offset.X, (int)_vector2Offset.Y, _texture.Width, _texture.Height);
     }
 
     public Vector2 getVector2()
     {
         return _vector2;
+    }
+
+    public bool ClickedOn(int x, int y)
+    {
+        
+        if (_pieceRectangle.Contains(new Vector2(x, y)))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Diagnostics;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -32,6 +34,9 @@ public class Game1 : Game
 
     private Texture2D _emptyTexture;
     
+    private Piece _currentPickedPiece;
+    private int[] _currentPickedPieceCoord;
+    
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -55,6 +60,7 @@ public class Game1 : Game
     protected override void LoadContent()
     {
         _playerTurn = 0;    // 0 = white, 1 = black
+        _currentPickedPieceCoord = new int[2];
         
         _kingWhiteTexture = Content.Load<Texture2D>("KingWhite");
         _queenWhiteTexture = Content.Load<Texture2D>("QueenWhite");
@@ -174,6 +180,28 @@ public class Game1 : Game
             Exit();
     
         _currentKeyboard = Keyboard.GetState();
+        
+        var mouseState = Mouse.GetState(); 
+        ;
+        if (mouseState.LeftButton == ButtonState.Pressed)
+        {
+            for (int i = 7; i >= 0; i--)    // i = řádek
+            {
+                for (int ii = 7; ii >= 0; ii--)  // ii = sloupec
+                {
+                    if (ChessBoard[i, ii].ClickedOn(mouseState.X, mouseState.Y))
+                    {
+                        Console.WriteLine("You clicked the chessboard");
+                        _currentPickedPiece = ChessBoard[i, ii];
+                        _currentPickedPieceCoord[0] = i; _currentPickedPieceCoord[1] = ii;
+                        
+                        Console.WriteLine($"You picked piece on {_currentPickedPieceCoord[0] + 1};{_currentPickedPieceCoord[1] + 1}");
+                        Console.WriteLine($"You picked piece with list coordinates {_currentPickedPieceCoord[0]};{_currentPickedPieceCoord[1]}");
+                    }
+                }
+            }
+        }
+        
         
         // TODO: Add your update logic here
 
