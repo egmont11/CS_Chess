@@ -198,6 +198,9 @@ public class Game1 : Game
                             {
                                 _currentPickedPiece.replacePiece(ChessBoard[i, ii]);
                                 ChessBoard[i, ii] = _currentPickedPiece;
+                                _currentPickedPiece = new Piece("King", 3, Vector2.Zero, new Texture2D(GraphicsDevice, 1, 1));
+                                _currentPickedPieceCoord = new int[2];
+                                Console.WriteLine(_currentPickedPieceCoord[0]);
                             }
                             else
                             {
