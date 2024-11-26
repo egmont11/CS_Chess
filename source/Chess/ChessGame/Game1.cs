@@ -61,6 +61,7 @@ public class Game1 : Game
     {
         _playerTurn = 0;    // 0 = white, 1 = black
         _currentPickedPieceCoord = new int[2];
+        _currentPickedPiece = new Piece("King", 3, Vector2.Zero, new Texture2D(GraphicsDevice, 1, 1));
         
         _kingWhiteTexture = Content.Load<Texture2D>("KingWhite");
         _queenWhiteTexture = Content.Load<Texture2D>("QueenWhite");
@@ -76,7 +77,7 @@ public class Game1 : Game
         _rookBlackTexture = Content.Load<Texture2D>("CastleBlack");
         _pawnBlackTexture = Content.Load<Texture2D>("PawnBlack");
 
-        _emptyTexture = new Texture2D(GraphicsDevice, 1, 1);
+        _emptyTexture = new Texture2D(GraphicsDevice, 32, 32);
         
         ChessBoard = new Piece[,] {
             {
@@ -191,12 +192,38 @@ public class Game1 : Game
                 {
                     if (ChessBoard[i, ii].ClickedOn(mouseState.X, mouseState.Y))
                     {
-                        Console.WriteLine("You clicked the chessboard");
-                        _currentPickedPiece = ChessBoard[i, ii];
-                        _currentPickedPieceCoord[0] = i; _currentPickedPieceCoord[1] = ii;
-                        
-                        Console.WriteLine($"You picked piece on {_currentPickedPieceCoord[0] + 1};{_currentPickedPieceCoord[1] + 1}");
-                        Console.WriteLine($"You picked piece with list coordinates {_currentPickedPieceCoord[0]};{_currentPickedPieceCoord[1]}");
+                        if (_currentPickedPiece.getTeam() != 3)
+                        {
+                            if (ChessBoard[i, ii] != _currentPickedPiece)
+                            {
+                                _currentPickedPiece.replacePiece(ChessBoard[i, ii]);
+                                ChessBoard[i, ii] = _currentPickedPiece;
+                            }
+                            else
+                            {
+                                Console.WriteLine("You clicked the chessboard");
+                                _currentPickedPiece = ChessBoard[i, ii];
+                                _currentPickedPieceCoord[0] = i;
+                                _currentPickedPieceCoord[1] = ii;
+
+                                Console.WriteLine(
+                                    $"You picked piece on {_currentPickedPieceCoord[0] + 1};{_currentPickedPieceCoord[1] + 1}");
+                                Console.WriteLine(
+                                    $"You picked piece with list coordinates {_currentPickedPieceCoord[0]};{_currentPickedPieceCoord[1]}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("You clicked the chessboard");
+                            _currentPickedPiece = ChessBoard[i, ii];
+                            _currentPickedPieceCoord[0] = i;
+                            _currentPickedPieceCoord[1] = ii;
+
+                            Console.WriteLine(
+                                $"You picked piece on {_currentPickedPieceCoord[0] + 1};{_currentPickedPieceCoord[1] + 1}");
+                            Console.WriteLine(
+                                $"You picked piece with list coordinates {_currentPickedPieceCoord[0]};{_currentPickedPieceCoord[1]}");
+                        }
                     }
                 }
             }

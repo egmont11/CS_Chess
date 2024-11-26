@@ -63,4 +63,9 @@ public class Piece
             return false;
         }
     }
+
+    public int getTeam()
+    {
+        return _team;
+    }
 }
